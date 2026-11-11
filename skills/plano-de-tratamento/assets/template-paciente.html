@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seu plano de tratamento</title>
+<!-- MODELO: troque todo texto entre {{ }}. Repita/remova blocos .fase conforme o número de fases (3 a 5). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--grafite:#1B1917;--petroleo:#0E4F55;--petroleo-2:#136670;--agua:#8CC9C5;--areia:#EDE6DA;--areia-2:#E2D8C8;--marfim:#F6F1E9;--tinta:#1F1C19;--muted:#6B6258;--line:rgba(31,28,25,.14);--card:#fff;--serif:"DM Serif Display",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--marfim:#1B1917;--areia:#23201D;--areia-2:#2D2925;--tinta:#F6F1E9;--muted:#B3AA9D;--line:rgba(246,241,233,.14);--card:#23201D;--petroleo:#8CC9C5}}
+:root[data-theme="dark"]{--marfim:#1B1917;--areia:#23201D;--areia-2:#2D2925;--tinta:#F6F1E9;--muted:#B3AA9D;--line:rgba(246,241,233,.14);--card:#23201D;--petroleo:#8CC9C5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--marfim);color:var(--tinta);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:40px 16px 64px}
+.rotulo{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--petroleo);font-weight:500}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(32px,6vw,48px);line-height:1.1;margin:8px 0 14px}
+h2{font-family:var(--serif);font-weight:400;font-size:24px;margin-bottom:14px}
+.topo{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:flex-start}
+.selo{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.selo.ok{background:var(--petroleo);color:var(--marfim);border-color:transparent}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chips span{font-size:13px;background:var(--areia);padding:5px 12px;border-radius:999px}
+.relato{background:var(--areia);border-left:3px solid var(--petroleo);border-radius:12px;padding:20px 22px;margin-bottom:36px}
+.relato p{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.4}
+.fases{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:36px}
+.fase{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.fase .n{width:30px;height:30px;border-radius:50%;background:var(--petroleo);color:var(--marfim);display:grid;place-items:center;font-size:14px;margin-bottom:12px}
+.fase small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.fase b{display:block;font-weight:500;font-size:17px;margin:4px 0 6px}
+.fase p{font-size:14px;color:var(--muted)}
+.esperar{margin-bottom:36px}.esperar li{margin:0 0 8px 20px}
+.invest{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;background:var(--areia);border-radius:16px;padding:22px}
+.invest .v{font-family:var(--serif);font-size:30px}
+.invest small{display:block;color:var(--muted);font-size:13px}
+.btn{display:inline-block;background:var(--petroleo);color:var(--marfim);padding:13px 22px;border-radius:999px;text-decoration:none;font-weight:500}
+footer{margin-top:40px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="topo">
+    <div class="rotulo">Dr. Jônatans Parada · Otorrinolaringologia</div>
+    <div class="selo">{{Rascunho, aguardando revisão do Dr.}}</div>
+  </div>
+  <h1>{{Primeiro nome}}, este é o seu plano para <em>respirar melhor</em></h1>
+  <div class="chips"><span>{{idade}} anos</span><span>{{duração total}}</span><span>{{n}} fases</span></div>
+
+  <section class="relato">
+    <div class="rotulo" style="margin-bottom:8px">O que você me contou</div>
+    <p>"{{queixa nas palavras do paciente}}"</p>
+  </section>
+
+  <h2>O caminho, passo a passo</h2>
+  <div class="fases">
+    <div class="fase"><div class="n">1</div><small>{{período}}</small><b>{{nome da fase}}</b><p>{{o que acontece, em 1–2 frases simples}}</p></div>
+    <div class="fase"><div class="n">2</div><small>{{período}}</small><b>{{nome da fase}}</b><p>{{…}}</p></div>
+    <div class="fase"><div class="n">3</div><small>{{período}}</small><b>{{nome da fase}}</b><p>{{…}}</p></div>
+  </div>
+
+  <section class="esperar">
+    <h2>O que esperar</h2>
+    <ul><li>{{benefício realista, sem promessa}}</li><li>{{…}}</li></ul>
+  </section>
+
+  <!-- Remova este bloco se o médico não informou valores -->
+  <section class="invest">
+    <div><small>Investimento do plano</small><div class="v">{{R$ valor}}</div><small>{{forma de pagamento}}</small></div>
+    <a class="btn" href="https://wa.me/5521992439960">Quero começar</a>
+  </section>
+
+  <footer>Plano individual, definido pelo seu médico após avaliação. Os resultados variam de pessoa para pessoa.<br>Rua Visconde de Pirajá, 414, sala 619, Ipanema · (21) 99243-9960</footer>
+</main>
+</body>
+</html>
