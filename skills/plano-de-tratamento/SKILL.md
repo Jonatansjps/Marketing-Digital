@@ -1,106 +1,109 @@
 ---
 name: plano-de-tratamento
-description: Monta o plano de tratamento otorrinolaringológico do jeito que o Dr. Jônatans Parada pensa. Na primeira vez, entrevista o médico para registrar o raciocínio clínico dele num Perfil Clínico. Depois, a partir de idade, queixa e avaliação do paciente (texto ou áudio transcrito), entrega o plano em 2 versões, a técnica para o médico e uma apresentação elegante para o paciente. Use quando o pedido falar em plano de tratamento, conduta, proposta para paciente, orçamento de tratamento, ou quando chegar um caso clínico com idade, queixa e achados de exame (rinite, desvio de septo, cornetos, apneia, ronco, adenoide, amígdalas, sinusite, respiração oral). Também use quando pedirem para criar ou atualizar o Perfil Clínico.
+description: Motor dos protocolos do Consultório Dr. Jonatans Parada (otorrino, Ipanema). Recebe um caso clínico sem identificação (idade, queixa, achados de exame, exames complementares) e, seguindo os protocolos do segundo cérebro (Ronco e Apneia, Rinite Alérgica e Imunoterapia, Rinossinusite e Cirurgia Nasal), entrega 4 saídas, a versão técnica para o médico, a página elegante para o paciente, o script da secretária e a linha da planilha financeira, com as variantes convênio ou particular e cirurgia combinada ou em etapas. Use quando o pedido falar em plano de tratamento, plano interno, plano para o paciente, conduta, proposta, imunoterapia, cirurgia nasal, faringoplastia, ou quando chegar um caso com ronco, apneia, polissonografia, rinite, prick test, sinusite, pólipos, desvio de septo ou cornetos. Também use para "completar os protocolos".
 ---
 
-# Plano de Tratamento — do jeito que o médico pensa
+# Plano de Tratamento: o motor dos protocolos do consultório
 
-Esta skill trabalha em dois momentos:
+Os protocolos do Dr. Jonatans são a **fonte de todo o raciocínio**. Esta skill não inventa conduta: ela aplica o protocolo ao caso e transforma o resultado em 4 entregas prontas.
 
-1. **Entrevista (uma vez só):** aprende o raciocínio clínico do médico e gera o **Perfil Clínico**.
-2. **Plano (a cada paciente):** recebe o caso e devolve o plano em **2 versões**: a técnica, para o médico, e a do paciente, para ele entender na hora.
-
-Fale sempre em português do Brasil, com o tom de um colega organizado e direto.
+Fale em português do Brasil. Tom: técnico, mas acessível ao paciente leigo.
 
 ---
 
-## Passo 0: existe um Perfil Clínico?
+## Passo 0: carregar a base
 
-Procure, nesta ordem:
-- um arquivo `perfil-clinico.md` no projeto, no conhecimento do Project ou anexado na conversa;
-- um bloco "PERFIL CLÍNICO" colado na conversa.
+1. **Protocolos.** Prefira as versões do Project ou da pasta "Consultório Dr. Jonatans/protocolos", se estiverem disponíveis na conversa, porque podem ser mais novas. Senão, use as cópias em `references/protocolos/`:
+   - `ronco-apneia.md`
+   - `rinite-imunoterapia.md`
+   - `rinossinusite-cirurgia-nasal.md`
+2. **CLAUDE.md do consultório**, se disponível: posicionamento ("medicina de precisão: o tratamento certo para a causa certa") e regras.
+3. Diga em 1 linha quais protocolos você vai aplicar ao caso (ex.: "Aplicando: Ronco e Apneia + Rinossinusite (septo/cornetos)").
 
-**Se existir:** diga em 1 linha "Perfil Clínico carregado: <resumo em ~10 palavras>" e siga para o **Passo 2**.
-**Se não existir:** siga para o **Passo 1**. Se chegou um caso antes do perfil, avise que precisa do perfil primeiro e guarde o caso para depois.
-
----
-
-## Passo 1: entrevista (gera o Perfil Clínico)
-
-Leia `references/entrevista.md` e conduza a entrevista **um bloco por vez** (são 6 blocos). Regras:
-- Mande o bloco inteiro de uma vez. O médico pode responder por áudio, em tópicos, como quiser.
-- Se uma resposta vier vaga ("depende"), faça **no máximo 1** pergunta de follow-up pedindo um exemplo real ("Me conta o último caso em que você fez isso").
-- Ao final, gere o Perfil Clínico **exatamente** no formato de `references/modelo-perfil-clinico.md`, usando as palavras do médico sempre que possível.
-- Entregue o perfil como arquivo `perfil-clinico.md` e oriente: "Salve este arquivo no conhecimento do Project (ou anexe nas próximas conversas). É ele que faz o plano sair do seu jeito."
-- Nunca preencha uma seção do perfil com suposição. Se o médico não respondeu, escreva `A DEFINIR`.
+Casos que cruzam focos são comuns (ex.: apneia + desvio de septo; rinite + cornetos; CCAD + alergia). **Aplique todos os protocolos envolvidos** e siga as "conexões" que eles próprios descrevem.
 
 ---
 
-## Passo 2: montar o plano
+## Passo 1: ler o caso e checar lacunas
 
-### 2.1 Ler o caso
-Entrada típica (texto ou áudio transcrito): idade, sexo, queixa principal, tempo de evolução, tratamentos anteriores, achados de exame (oroscopia, rinoscopia, nasofibroscopia, otoscopia), exames complementares (TC de seios, polissonografia, audiometria) e restrições do paciente (orçamento, agenda, medo de cirurgia).
+Extraia: idade, queixa e tempo de evolução, tratamentos anteriores, achados de exame (oroscopia/Friedman, rinoscopia, endoscopia nasal), exames complementares (polissonografia: IAH e saturação mínima; TC de seios; prick/IgE), comorbidades (asma, obesidade, medicações), CPAP, **pagamento (convênio ou particular)** e **origem** (Instagram, indicação, convênio, site).
 
-Antes de montar, verifique se falta algo **que mude a conduta segundo o Perfil Clínico** (por exemplo, a polissonografia num paciente com ronco, se o perfil diz que ele sempre pede). Se faltar:
-- pergunte em **uma única mensagem**, com no máximo 3 perguntas; ou
-- se o médico disser "monta assim mesmo", monte e liste a lacuna em **Pendências**.
+Depois, compare com o "O que avaliar" de cada protocolo aplicado. Se faltar algo **que muda a conduta** (ex.: sem polissonografia num caso de apneia; sem prick num candidato à imunoterapia; checar as contraindicações da imunoterapia), pergunte numa única mensagem com no máximo 3 perguntas. Se o Dr. disser "monta assim mesmo", monte e liste em **Pendências**.
 
-### 2.2 Raciocinar como o médico
-Aplique o Perfil Clínico na ordem dele:
-1. **Prioridades:** o que ele trata primeiro e por quê (ex.: controle clínico da rinite antes de indicar cirurgia).
-2. **Critérios de indicação:** quando passa do clínico para o cirúrgico; tempo mínimo de tratamento clínico.
-3. **Condutas preferidas por condição** (seção 4 do perfil).
-4. **Fases e duração** típicas.
-5. **Reavaliação:** quando e com quais critérios.
-6. **O que ele nunca faz:** respeite sempre.
+Se a conduta depender de um item **[a preencher]** do protocolo ou de uma lacuna de `references/lacunas.md`, **não decida por ele**. Marque `⚠ critério pessoal não definido: <item>` e faça a pergunta correspondente de `lacunas.md`. Quando ele responder, entregue o trecho pronto para colar no protocolo.
 
-Se o caso cair fora de tudo o que o perfil cobre, diga isso claramente e proponha a conduta mais conservadora, marcada como `⚠ fora do Perfil Clínico — decidir`.
+Se o caso estiver fora dos 3 protocolos (ex.: otologia, criança com adenoide), diga isso claramente, proponha a conduta mais conservadora marcada como `⚠ fora dos protocolos: decidir` e ofereça criar o protocolo depois.
 
-### 2.3 Entregar as 2 versões
+---
 
-**A) Versão técnica (para o médico)**, em Markdown, na conversa:
+## Passo 2: entregar as 4 saídas
+
+### 1) Versão técnica (o plano interno, para o Dr.)
+Em Markdown, na conversa:
 
 ```
-## Versão técnica: <iniciais>, <idade> anos
+## Plano interno: <idade> anos, <foco(s)>
+⚠ Sinais de alerta (se houver, sempre no topo)
 
 **Resumo do caso:** 2–3 linhas.
-**Hipóteses diagnósticas:** em ordem de probabilidade (CID-10 se o perfil pedir).
-**Achados que sustentam:** bullets.
-**Raciocínio (por que nesta ordem):** 3–5 bullets ligando o caso ao Perfil Clínico ("segue sua regra: …").
+**Protocolos aplicados:** …
+**Hipóteses / classificação:** (ex.: AOS moderada, Friedman 2; RSC tipo 2 com pólipos, EPOS 2020; rinite alérgica, triângulo completo, pizza >50% alérgica)
+
+**Raciocínio pelo protocolo:** 3–5 bullets, cada um citando a linha da tabela "Para onde cada achado leva" ou o critério usado.
+  - Ex.: "Obstrução velofaríngea + Friedman favorável → faringoplastia (Ronco e Apneia §2)"
 
 ### Plano por fase
 | Fase | Período | Conduta | Objetivo | Critério para avançar |
 |---|---|---|---|---|
 
-**Exames a solicitar:** …
-**Sinais de alerta / encaminhamentos:** …
-**Reavaliação:** quando e o que medir (ex.: NOSE, Epworth, IAH).
-**Investimento:** só se o perfil tiver valores; senão, "A DEFINIR pelo médico".
-**Pendências e decisões suas:** lista curta.
+**Variantes cirúrgicas** (quando houver nariz + faringe): Combinada (um tempo cirúrgico, uma orientação, um pedido ao convênio) × Em etapas (pedidos e orientações separados). Mostre as duas e deixe a escolha com o Dr.
+**Exames / pedidos ao convênio:** …
+**Reavaliação:** quando e o que medir.
+**Pendências e decisões suas:** lista curta, incluindo os `⚠`.
 ```
 
-**B) Versão do paciente**: uma página HTML elegante, baseada em `assets/template-paciente.html`:
-- Linguagem simples, sem jargão; quando um termo técnico for inevitável, explique entre parênteses ("septo, a parede que divide o nariz").
-- Bloco "O que você me contou" com a queixa **nas palavras do paciente**, se vierem no caso.
-- 3 a 5 fases em linha do tempo: nome curto, período e o que acontece em cada uma.
-- Bloco "O que esperar" com benefícios **realistas**, sem prometer resultado.
-- Investimento só se o médico informou valores. Nunca invente preço.
-- Selo **"Rascunho, aguardando revisão do Dr."** até o médico dizer que revisou. Só depois troque por "Revisado pelo Dr. Jônatans Parada".
-- Identifique o paciente só pelo primeiro nome ou pelas iniciais.
-- Publique como artifact (se a ferramenta existir) ou entregue o arquivo `.html`.
+### 2) Plano para o paciente (página elegante)
+Página HTML baseada em `assets/template-paciente.html`, publicada como artifact se a ferramenta existir, ou entregue como arquivo `.html`. Siga as seções do "Modelo do plano para o paciente" do protocolo aplicado (ex.: em ronco, "Por que você ronca" e "Gravidade"; em rinite, "O que é a imunoterapia" e "Cuidados em casa"), mais:
+- linguagem simples, termos técnicos explicados entre parênteses;
+- linha do tempo das fases (3 a 5);
+- a frase "o tratamento certo para a causa certa", ligando o tratamento à causa encontrada;
+- **bloco "Como funciona"** conforme o pagamento:
+  - **Convênio:** "Coberto pelo seu convênio. Nossa secretária cuida da autorização." Sem valores. Nunca sugerir cobrança à parte do que o convênio cobre.
+  - **Particular:** valores **só** os que estão nos protocolos (ex.: programa de imunoterapia R$ 600/mês ou semestral no Pix R$ 3.420 / R$ 3.240; prick test cerca de R$ 400). Valor que não está no protocolo vira "a combinar na consulta".
+- selo **"Rascunho, aguardando revisão do Dr."** até ele confirmar; depois, "Revisado pelo Dr. Jônatans Parada";
+- paciente identificado só pelo primeiro nome ou por "Seu plano".
 
-Termine com uma linha: "Quer ajustar algo? Ex.: 'troca a fase 2 por spray de corticoide por 90 dias' ou 'tira o valor'."
+### 3) Script da secretária (WhatsApp)
+Mensagens curtas, prontas para a Ana ou para a secretária remota copiarem:
+- **Convênio / cirurgia:** confirmar o convênio e a carteirinha → documentos para a autorização (pedido médico, laudos) → prazo médio de autorização → agendamento → orientações de pré-operatório. Se for em etapas, um script por etapa.
+- **Particular / imunoterapia:** explicar o programa em 2 linhas → as opções de pagamento do protocolo → agendar o início das gotas e os retornos.
+- Tom acolhedor, sem jargão, sem promessa de resultado, sem diagnóstico pelo WhatsApp.
 
-### 2.4 Ajustes
-Ajustes pedidos na conversa atualizam **as duas versões** juntas, mantendo uma coerente com a outra. Se o ajuste contrariar o Perfil Clínico, aplique e pergunte em 1 linha: "Isso vira regra no seu perfil?". Se a resposta for sim, gere o trecho atualizado do `perfil-clinico.md`.
+### 4) Linha da planilha "Controle Financeiro – Consultório Dr. Jonatans", aba Atendimentos
+Entregue uma tabela com **exatamente** estas colunas, nesta ordem:
+
+| Data | Tipo (consulta/exame/cirurgia/imunoterapia) | Foco (ronco/rinologia/rinite) | Pagamento (convênio/particular) | Convênio | Como chegou (Instagram/indicação/convênio/site) | Valor recebido (R$) | Observações | Nº da guia (convênio) ou prontuário (particular) | Valor previsto (R$) | Data do recebimento | Situação (a receber/recebido/glosado) |
+
+- Uma linha por procedimento previsto (cirurgia combinada = 1 linha; em etapas = 1 por etapa; imunoterapia = 1 por mês, ou 1 se for semestral).
+- **Nunca** coloque o nome do paciente: use o nº da guia ou do prontuário (deixe `[preencher]` se não veio).
+- Valor previsto só se vier do protocolo ou do Dr.; senão, `[preencher]`. Situação inicial: "a receber".
+- Se o conector do Google Sheets estiver disponível, **pergunte antes** de lançar ("Lanço essa linha na planilha?"). Nunca lance sem um "sim".
+
+Termine com 1 linha: "Quer ajustar algo? Ex.: 'faz em etapas', 'paciente é particular', 'tira a fase 3'."
+
+---
+
+## Passo 3: ajustes e evolução dos protocolos
+
+- Ajustes atualizam **as 4 saídas** juntas, mantendo uma coerente com as outras.
+- Se o Dr. decidir algo que **contraria ou completa** um protocolo, aplique e pergunte em 1 linha: "Isso vira regra no protocolo de <foco>?". Se a resposta for sim, entregue o trecho pronto para colar no documento do protocolo (e, se o conector do Claude Docs estiver disponível, ofereça editar o documento direto, só depois de um "sim").
+- "Completar os protocolos": percorra `references/lacunas.md`, no máximo 3 perguntas por vez.
 
 ---
 
 ## Regras inegociáveis
-
-- **O médico decide.** O plano é um rascunho de apoio; nada vai para o paciente sem revisão dele.
-- **Nunca invente** achado, exame, dose, preço ou estatística de sucesso. Se faltar, é `A DEFINIR` ou vai para Pendências.
-- **Doses e medicamentos:** use só os que estão no Perfil Clínico. Se precisar de algo fora dele, escreva o nome da classe ("corticoide nasal") e marque para o médico definir.
-- **Ética médica (CFM):** a versão do paciente não promete resultado, não usa "garantido", "definitivo", "100%", não usa antes/depois e não faz comparação depreciativa com outros profissionais.
-- **LGPD:** sem nome completo, CPF, telefone ou endereço do paciente. Se vierem no caso, ignore e avise uma vez.
-- **Sinais de alerta** (ex.: sangramento unilateral, massa cervical, perda auditiva súbita, apneia grave com sonolência ao dirigir, criança com pausas respiratórias importantes) sempre aparecem destacados no topo da versão técnica.
+- **O médico decide.** Tudo é rascunho de apoio; nada vai ao paciente sem revisão.
+- **Nunca invente** achado, exame, dose, critério pessoal, preço ou taxa de sucesso. Use só os medicamentos e doses que estão nos protocolos; fora disso, cite a classe ("corticoide nasal") e marque para o Dr. definir.
+- **CFM:** sem promessa de resultado, sem "garantido", "definitivo" ou "100%", sem antes e depois. Preços nunca vão para publicidade (no plano individual podem ir, se vierem do protocolo).
+- **LGPD e sigilo:** sem nome completo, CPF, telefone ou endereço do paciente. Se vierem no caso, ignore e avise uma vez.
+- **Sinais de alerta** (sangramento ou lesão unilateral, suspeita de tumor, erosão óssea, complicação orbitária ou intracraniana, apneia grave com sonolência ao dirigir, asma grave não controlada) sempre no topo da versão técnica.

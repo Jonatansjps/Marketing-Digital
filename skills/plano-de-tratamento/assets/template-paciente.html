@@ -44,12 +44,13 @@ footer{margin-top:40px;font-size:13px;color:var(--muted);border-top:1px solid va
     <div class="rotulo">Dr. Jônatans Parada · Otorrinolaringologia</div>
     <div class="selo">{{Rascunho, aguardando revisão do Dr.}}</div>
   </div>
-  <h1>{{Primeiro nome}}, este é o seu plano para <em>respirar melhor</em></h1>
+  <h1>{{Primeiro nome ou "Seu plano"}}: {{título do foco, ex.: "Ronco e apneia do sono"}}</h1>
+  <p style="color:var(--muted);margin:-4px 0 18px">O tratamento certo para a causa certa.</p>
   <div class="chips"><span>{{idade}} anos</span><span>{{duração total}}</span><span>{{n}} fases</span></div>
 
   <section class="relato">
-    <div class="rotulo" style="margin-bottom:8px">O que você me contou</div>
-    <p>"{{queixa nas palavras do paciente}}"</p>
+    <div class="rotulo" style="margin-bottom:8px">O que encontramos na sua avaliação</div>
+    <p>{{causa em linguagem simples, ex.: "um estreitamento na garganta, atrás do céu da boca"}}</p>
   </section>
 
   <h2>O caminho, passo a passo</h2>
@@ -60,17 +61,23 @@ footer{margin-top:40px;font-size:13px;color:var(--muted);border-top:1px solid va
   </div>
 
   <section class="esperar">
-    <h2>O que esperar</h2>
+    <h2>{{seção específica do protocolo, ex.: "O que é a imunoterapia" / "Cuidados em casa" / "O que esperar"}}</h2>
     <ul><li>{{benefício realista, sem promessa}}</li><li>{{…}}</li></ul>
   </section>
 
-  <!-- Remova este bloco se o médico não informou valores -->
+  <!-- Use UMA das duas versões do bloco "Como funciona", conforme o pagamento -->
+  <!-- CONVÊNIO -->
   <section class="invest">
-    <div><small>Investimento do plano</small><div class="v">{{R$ valor}}</div><small>{{forma de pagamento}}</small></div>
+    <div><small>Como funciona</small><div class="v">Coberto pelo seu convênio</div><small>Nossa secretária cuida da autorização e do agendamento.</small></div>
+    <a class="btn" href="https://wa.me/5521992439960">Falar com a secretária</a>
+  </section>
+  <!-- PARTICULAR: só valores que estão no protocolo; senão "a combinar na consulta" -->
+  <section class="invest">
+    <div><small>Investimento</small><div class="v">{{R$ valor do protocolo}}</div><small>{{opções de pagamento do protocolo}}</small></div>
     <a class="btn" href="https://wa.me/5521992439960">Quero começar</a>
   </section>
 
-  <footer>Plano individual, definido pelo seu médico após avaliação. Os resultados variam de pessoa para pessoa.<br>Rua Visconde de Pirajá, 414, sala 619, Ipanema · (21) 99243-9960</footer>
+  <footer>Dúvidas? Fale com a nossa secretária pelo WhatsApp.<br>Plano individual, definido pelo seu médico após avaliação. Os resultados variam de pessoa para pessoa.<br>Rua Visconde de Pirajá, 414, sala 619, Ipanema · (21) 99243-9960</footer>
 </main>
 </body>
 </html>
