@@ -9,9 +9,9 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Dr. Jônatans Parada · Otorrino em Ipanema · Respiração">
-<meta property="og:description" content="Nariz entupido, ronco, sono que não descansa? Avaliação respiratória completa em Ipanema, com um plano por escrito.">
-<!-- quando o site tiver domínio, troque pelo endereço completo: https://SEUDOMINIO/img/dr-jonatans.jpg -->
-<meta property="og:image" content="img/dr-jonatans.jpg">
+<meta property="og:description" content="Nariz entupido, ronco, sono que não descansa? Avaliação Respiratória de Precisão em Ipanema: a causa explicada e um tratamento individualizado.">
+<!-- quando o site tiver domínio, troque pelo endereço completo: https://SEUDOMINIO/img/dr-jonatans-retrato.jpg -->
+<meta property="og:image" content="img/dr-jonatans-retrato.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230E4F55'/%3E%3Cpath d='M16 36c6-10 14-10 16 0s10 10 16 0' stroke='%23F5F0E8' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
@@ -217,6 +217,33 @@ h2 em,h1 em{font-style:italic;color:var(--agua)}
 @media(max-width:960px){.cir-grupo{grid-template-columns:1fr;gap:18px}.cir-area{position:static}}
 @media(max-width:620px){.cir,.cir-nota{grid-template-columns:1fr;gap:16px}.cir-nota{padding:30px 24px}.cir .btn{justify-self:start}.atalhos{margin-top:-30px}}
 
+/* critérios da avaliação */
+.criterios{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line-escuro)}
+.criterio{padding:34px 26px 10px 0}
+.criterio+.criterio{padding-left:26px;border-left:1px solid var(--line-escuro)}
+.criterio .n{font-family:var(--serif);font-size:20px;color:var(--petroleo);display:block;margin-bottom:18px}
+.criterio h3{font-size:25px;margin-bottom:10px}
+.criterio p{color:var(--muted-escuro);font-size:15.5px}
+@media(max-width:1060px){.criterios{grid-template-columns:1fr 1fr}.criterio,.criterio+.criterio{padding:28px 24px 24px 0;border-left:0;border-bottom:1px solid var(--line-escuro)}}
+@media(max-width:620px){.criterios{grid-template-columns:1fr}.criterio,.criterio+.criterio{padding:26px 0}}
+
+/* cirurgias compactas */
+.cir-lista{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cir-card{background:rgba(246,241,233,.03);border:1px solid var(--line);border-radius:18px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:6px;scroll-margin-top:110px;transition:border-color .3s,background .3s}
+.cir-card:hover,.cir-card:target{border-color:rgba(140,201,197,.45);background:rgba(140,201,197,.05)}
+.cir-card .tecnico{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--agua);font-weight:500}
+.cir-card h4{font-family:var(--serif);font-weight:400;font-size:23px;line-height:1.15}
+.cir-card p{color:var(--muted);font-size:14.5px;line-height:1.55}
+.cir-card a{margin-top:auto;padding-top:10px;font-size:14px;color:var(--agua)}
+.cir-card a:hover{text-decoration:underline}
+.outros{margin-top:64px;padding-top:44px;border-top:1px solid var(--line);display:grid;grid-template-columns:300px 1fr;gap:40px;scroll-margin-top:100px}
+.outros h3{font-size:30px;margin-top:14px}
+.outros-lista{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.outros-lista h4{font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.2;margin-bottom:8px}
+.outros-lista p{color:var(--muted);font-size:14.5px}
+@media(max-width:960px){.cir-lista{grid-template-columns:1fr 1fr}.outros{grid-template-columns:1fr;gap:24px}}
+@media(max-width:620px){.cir-lista,.outros-lista{grid-template-columns:1fr}}
+
 /* como funciona */
 .passos{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:p;position:relative}
 .passos::before{content:"";position:absolute;left:0;right:0;top:27px;height:1px;background:var(--line)}
@@ -330,10 +357,10 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;font-size:15px;color
     </a>
     <nav class="menu" aria-label="Seções">
       <a href="#respiracao">Respiração</a>
-      <a href="#cirurgias">Cirurgias</a>
-      <a href="#outros-tratamentos">Outros tratamentos</a>
+      <a href="#avaliacao-precisao">A avaliação</a>
       <a href="#sobre">Sobre mim</a>
       <a href="#consultorio">Consultório</a>
+      <a href="#cirurgias">Cirurgias</a>
       <a href="#perguntas">Dúvidas</a>
     </nav>
     <a class="btn btn-primario js-zap" href="https://wa.me/5521992439960?text=Ol%C3%A1%2C%20Dr.%20J%C3%B4natans!%20Quero%20agendar%20a%20avalia%C3%A7%C3%A3o%20respirat%C3%B3ria." target="_blank" rel="noopener"><span class="txt">Agendar</span><span class="seta">↗</span></a>
@@ -363,7 +390,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;font-size:15px;color
 
     <div class="retrato rv d2">
       <div class="respiro" aria-hidden="true"><span></span><span></span><span></span></div>
-      <div class="foto"><img src="img/dr-jonatans.jpg" alt="Dr. Jônatans Parada, otorrinolaringologista, de jaleco branco no consultório em Ipanema"></div>
+      <div class="foto"><img src="img/dr-jonatans-retrato.jpg" alt="Dr. Jônatans Parada, otorrinolaringologista, no consultório em Ipanema com o Cristo Redentor ao fundo"></div>
       <span class="crm-hero">CRM 52791547 · RQE 15197</span>
     </div>
   </div>
@@ -426,7 +453,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;font-size:15px;color
       </article>
 
       <article class="pilar rv">
-        <figure class="midia"><img src="img/pilar-performance.jpg" alt="Surfista descendo uma onda no fim de tarde" loading="lazy"></figure>
+        <figure class="midia"><img src="img/pilar-performance-surf.jpg" alt="Surfista fazendo uma manobra no alto de uma onda grande" loading="lazy" style="object-position:40% 30%"></figure>
         <span class="num">04</span>
         <span class="icone"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16c2.5-2 4.5-2 7 0s4.5 2 7 0 4-2 6 0"/><path d="M2 11c2.5-2 4.5-2 7 0s4.5 2 7 0 4-2 6 0" opacity=".55"/><circle cx="17" cy="5" r="2"/></svg></span>
         <h3>Respiração &amp; Performance</h3>
@@ -458,179 +485,22 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;font-size:15px;color
   </div>
 </section>
 
-<!-- OUTROS TRATAMENTOS -->
-<section class="secao claro" id="outros-tratamentos">
+<!-- AVALIAÇÃO DE PRECISÃO: CRITÉRIOS -->
+<section class="secao claro" id="avaliacao-precisao">
   <div class="wrap">
     <div class="cabeca">
       <div>
-        <span class="rotulo rv">Outros tratamentos</span>
-        <h2 class="rv d1">Além da respiração, <em>o cuidado inteiro.</em></h2>
+        <span class="rotulo rv">Avaliação Respiratória de Precisão</span>
+        <h2 class="rv d1">Antes de tratar, <em>entenda a causa.</em></h2>
       </div>
-      <p class="lead rv d2">Ouvido, equilíbrio e voz também fazem parte da otorrinolaringologia, sempre explicados em linguagem de gente.</p>
+      <p class="lead rv d2">Nariz entupido, ronco e cansaço podem ter causas diferentes, e cada causa pede um tratamento. Na hora de escolher onde se avaliar, vale conferir se a consulta inclui estes cinco pontos.</p>
     </div>
-    <div class="areas">
-      <article class="area rv">
-        <span class="icone"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 1 1 12 0c0 3-2 4-3 5.5S14 18 12 19.5 7 20 7 17"/><path d="M10 9a2 2 0 1 1 4 0c0 1.5-2 2-2 3.5"/></svg></span>
-        <h3>Ouvido &amp; Audição</h3>
-        <p class="frase">Ouvir bem é estar presente.</p>
-        <p>Cera, otite, zumbido e perda auditiva, investigados com cuidado e com o tratamento adequado a cada caso.</p>
-      </article>
-      <article class="area rv d1">
-        <span class="icone"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7a5 5 0 0 1 0 10M12 10a2 2 0 0 1 0 4"/></svg></span>
-        <h3>Tontura &amp; Equilíbrio</h3>
-        <p class="frase">Nem toda tontura é labirintite.</p>
-        <p>Vertigem, cristais do ouvido (VPPB) e desequilíbrio. Entender a origem muda o tratamento.</p>
-      </article>
-      <article class="area rv d2">
-        <span class="icone"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg></span>
-        <h3>Voz &amp; Garganta</h3>
-        <p class="frase">Rouquidão que não passa merece avaliação.</p>
-        <p>Pigarro, refluxo e cansaço vocal de quem fala o dia inteiro: professores, gestores, profissionais da voz.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- CIRURGIAS -->
-<section class="secao cirurgias" id="cirurgias">
-  <div class="wrap">
-    <div class="cabeca">
-      <div>
-        <span class="rotulo rv">Cirurgias</span>
-        <h2 class="rv d1">Quando a cirurgia é o caminho, <em>ela é feita com precisão e segurança.</em></h2>
-      </div>
-      <div class="lead rv d2">
-        <p>Estas são as cirurgias que realizo. Todas começam por uma avaliação: indico só quando é o melhor para o seu caso, e explico antes cada etapa, o preparo e a recuperação.</p>
-      </div>
-    </div>
-
-    <nav class="atalhos rv" aria-label="Cirurgias realizadas">
-      <span>Ir direto</span>
-      <a href="#septoplastia">Desvio de septo</a>
-      <a href="#turbinoplastia">Cornetos nasais</a>
-      <a href="#endoscopica">Sinusite e pólipos</a>
-      <a href="#dacrio">Canal lacrimal</a>
-      <a href="#adenoidectomia">Adenoide</a>
-      <a href="#amigdalectomia">Amígdalas</a>
-      <a href="#faringoplastia">Ronco</a>
-      <a href="#laringe">Pregas vocais</a>
-      <a href="#tubo">Tubo no ouvido</a>
-    </nav>
-
-    <div class="cir-grupo">
-      <div class="cir-area rv">
-        <span class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-1 4-4 7-4 11a4 4 0 0 0 8 0c0-4-3-7-4-11z"/><path d="M8 17c-2 0-4 1-4 3M16 17c2 0 4 1 4 3"/></svg></span>
-        <div><h3>Nariz &amp; seios da face</h3><small>4 cirurgias</small></div>
-      </div>
-      <div>
-        <article class="cir rv" id="septoplastia">
-          <div>
-            <span class="tecnico">Septoplastia</span>
-            <h4>Correção do desvio de septo</h4>
-            <p>Para quem vive com o nariz entupido por causa de um desvio na parede que divide as narinas. A correção é feita por dentro do nariz.</p>
-          </div>
-          <a class="btn btn-linha" data-cir="Septoplastia (correção do desvio de septo)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
-        </article>
-        <article class="cir rv" id="turbinoplastia">
-          <div>
-            <span class="tecnico">Turbinoplastia</span>
-            <h4>Cirurgia dos cornetos nasais</h4>
-            <p>Para quem tem o nariz entupido por cornetos aumentados que não melhoram com o tratamento clínico, muitas vezes junto com rinite. Reduz o volume dos cornetos e abre a passagem do ar, preservando a função do nariz. Feita por dentro do nariz, muitas vezes junto com a septoplastia.</p>
-          </div>
-          <a class="btn btn-linha" data-cir="Turbinoplastia (cirurgia dos cornetos nasais)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
-        </article>
-        <article class="cir rv" id="endoscopica">
-          <div>
-            <span class="tecnico">Cirurgia endoscópica nasossinusal</span>
-            <h4>Cirurgia para sinusite e polipose nasal</h4>
-            <p>Para sinusite crônica ou que sempre volta e para pólipos que não melhoram com o tratamento clínico. Feita com endoscópio, pelo nariz.</p>
-          </div>
-          <a class="btn btn-linha" data-cir="Cirurgia endoscópica nasossinusal (sinusite e polipose nasal)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
-        </article>
-        <article class="cir rv" id="dacrio">
-          <div>
-            <span class="tecnico">Dacriocistorrinostomia endoscópica</span>
-            <h4>Desobstrução do canal lacrimal</h4>
-            <p>Para quem lacrimeja o tempo todo ou tem infecções de repetição no canto do olho por obstrução do canal da lágrima. Feita com endoscópio, pelo nariz.</p>
-          </div>
-          <a class="btn btn-linha" data-cir="Dacriocistorrinostomia (desobstrução do canal lacrimal)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
-        </article>
-      </div>
-    </div>
-
-    <div class="cir-grupo">
-      <div class="cir-area rv">
-        <span class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span>
-        <div><h3>Garganta &amp; sono</h3><small>3 cirurgias</small></div>
-      </div>
-      <div>
-        <article class="cir rv" id="adenoidectomia">
-          <div>
-            <span class="tecnico">Adenoidectomia</span>
-            <h4>Remoção da adenoide</h4>
-            <p>Comum em crianças que respiram pela boca, roncam, dormem mal ou têm otites de repetição por causa de uma adenoide aumentada.</p>
-          </div>
-          <a class="btn btn-linha" data-cir="Adenoidectomia (remoção da adenoide)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
-        </article>
-        <article class="cir rv" id="amigdalectomia">
-          <div>
-            <span class="tecnico">Amigdalectomia</span>
-            <h4>Remoção das amígdalas</h4>
-            <p>Para amigdalites de repetição ou amígdalas grandes que atrapalham a respiração e o sono, em crianças e adultos.</p>
-          </div>
-          <a class="btn btn-linha" data-cir="Amigdalectomia (remoção das amígdalas)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
-        </article>
-        <article class="cir rv" id="faringoplastia">
-          <div>
-            <span class="tecnico">Faringoplastia</span>
-            <h4>Cirurgia para ronco</h4>
-            <p>Para casos selecionados de ronco e apneia, quando a avaliação mostra que a garganta é o ponto que estreita a passagem do ar.</p>
-          </div>
-          <a class="btn btn-linha" data-cir="Faringoplastia (cirurgia para ronco)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
-        </article>
-      </div>
-    </div>
-
-    <div class="cir-grupo">
-      <div class="cir-area rv">
-        <span class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg></span>
-        <div><h3>Voz</h3><small>1 cirurgia</small></div>
-      </div>
-      <div>
-        <article class="cir rv" id="laringe">
-          <div>
-            <span class="tecnico">Microcirurgia de laringe</span>
-            <h4>Cirurgia das pregas vocais</h4>
-            <p>Tratamento cirúrgico da rouquidão causada por nódulos, pólipos e outras lesões das pregas vocais, quando a voz não melhora com o tratamento clínico.</p>
-          </div>
-          <a class="btn btn-linha" data-cir="Microcirurgia de laringe (pregas vocais / rouquidão)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
-        </article>
-      </div>
-    </div>
-
-    <div class="cir-grupo">
-      <div class="cir-area rv">
-        <span class="icone"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 1 1 12 0c0 3-2 4-3 5.5S14 18 12 19.5 7 20 7 17"/><path d="M10 9a2 2 0 1 1 4 0c0 1.5-2 2-2 3.5"/></svg></span>
-        <div><h3>Ouvido</h3><small>1 cirurgia</small></div>
-      </div>
-      <div>
-        <article class="cir rv" id="tubo">
-          <div>
-            <span class="tecnico">Timpanotomia para tubo de ventilação</span>
-            <h4>Colocação de tubo no ouvido</h4>
-            <p>Para líquido acumulado atrás do tímpano ou otites que se repetem, muito comum em crianças, quando o tratamento clínico não resolve.</p>
-          </div>
-          <a class="btn btn-linha" data-cir="Timpanotomia para colocação de tubo de ventilação" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
-        </article>
-      </div>
-    </div>
-
-    <div class="cir-nota rv">
-      <div>
-        <h3>Já recebeu indicação de cirurgia?</h3>
-        <p>Traga seus exames. Avalio o seu caso, explico as opções, inclusive as que não são cirúrgicas, e você decide com segurança.</p>
-      </div>
-      <a class="btn btn-primario" data-cir="segunda opinião sobre uma indicação de cirurgia" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Falar sobre o meu caso <span class="seta">↗</span></a>
+    <div class="criterios">
+      <div class="criterio rv"><span class="n">01</span><h3>Tempo para ouvir</h3><p>Uma conversa sobre sono, ronco, rinite, treino e cansaço, porque está tudo ligado.</p></div>
+      <div class="criterio rv d1"><span class="n">02</span><h3>Ver por dentro</h3><p>Endoscopia nasal no consultório, quando indicada, para examinar o nariz e os seios da face.</p></div>
+      <div class="criterio rv d2"><span class="n">03</span><h3>Alergia investigada</h3><p>Teste de alergia, quando indicado, para saber o que mantém a inflamação do nariz.</p></div>
+      <div class="criterio rv d3"><span class="n">04</span><h3>O sono junto</h3><p>Ronco e pausas na respiração avaliados junto com o nariz e a garganta.</p></div>
+      <div class="criterio rv d4"><span class="n">05</span><h3>Uma recomendação clara</h3><p>A causa explicada em palavras simples, um tratamento individualizado e acompanhamento em cada etapa.</p></div>
     </div>
   </div>
 </section>
@@ -648,7 +518,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;font-size:15px;color
       <div class="passo rv"><span class="marco">01</span><h3>Conversa</h3><p>Sobre a sua rotina: sono, ronco, rinite, treino, cansaço ao acordar. Pergunto de tudo, porque está tudo ligado ao caminho do ar.</p></div>
       <div class="passo rv d1"><span class="marco">02</span><h3>Exame</h3><p>Nariz, seios da face e garganta, com endoscopia nasal no consultório quando indicada.</p></div>
       <div class="passo rv d2"><span class="marco">03</span><h3>A causa, explicada</h3><p>Você entende o que trava a sua respiração, em palavras simples e sem pressa.</p></div>
-      <div class="passo rv d3"><span class="marco">04</span><h3>O plano indicado</h3><p>Tratamento clínico, controle da alergia, mudança de hábito ou cirurgia. Só o que for bem indicado para você.</p></div>
+      <div class="passo rv d3"><span class="marco">04</span><h3>A minha recomendação</h3><p>Digo com clareza o que eu recomendo para o seu caso: tratamento clínico, controle da alergia, mudança de hábito ou cirurgia.</p></div>
     </div>
   </div>
 </section>
@@ -708,7 +578,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;font-size:15px;color
     <div class="oferta-box rv">
       <div class="oferta-esq">
         <span class="rotulo">O primeiro passo</span>
-        <h2>Avaliação respiratória completa</h2>
+        <h2>Avaliação Respiratória de Precisão</h2>
         <p>Para entender por que você respira mal e sair com um caminho claro, escrito, feito para você.</p>
         <a class="btn btn-primario js-zap" href="https://wa.me/5521992439960?text=Ol%C3%A1%2C%20Dr.%20J%C3%B4natans!%20Quero%20agendar%20a%20avalia%C3%A7%C3%A3o%20respirat%C3%B3ria." target="_blank" rel="noopener">Agendar minha avaliação <span class="seta">↗</span></a>
         <p class="micro" style="color:rgba(246,241,233,.7)">Valor e horários pelo WhatsApp.</p>
@@ -728,6 +598,98 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;font-size:15px;color
   </div>
 </section>
 
+<!-- CIRURGIAS E OUTROS TRATAMENTOS (compacto) -->
+<section class="secao cirurgias" id="cirurgias">
+  <div class="wrap">
+    <div class="cabeca">
+      <div>
+        <span class="rotulo rv">Cirurgias</span>
+        <h2 class="rv d1">Quando a cirurgia é o caminho, <em>ela é feita com precisão e segurança.</em></h2>
+      </div>
+      <div class="lead rv d2">
+        <p>Toda cirurgia começa por uma avaliação. Indico só quando é o melhor para o seu caso, e explico antes cada etapa, o preparo e a recuperação.</p>
+      </div>
+    </div>
+
+    <div class="cir-lista">
+      <article class="cir-card rv" id="septoplastia">
+        <span class="tecnico">Septoplastia</span>
+        <h4>Desvio de septo</h4>
+        <p>Para o nariz entupido por desvio na parede que divide as narinas.</p>
+        <a data-cir="Septoplastia (correção do desvio de septo)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
+      </article>
+      <article class="cir-card rv" id="turbinoplastia">
+        <span class="tecnico">Turbinoplastia</span>
+        <h4>Cornetos nasais</h4>
+        <p>Reduz cornetos aumentados que não melhoram com o tratamento clínico, preservando a função do nariz.</p>
+        <a data-cir="Turbinoplastia (cirurgia dos cornetos nasais)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
+      </article>
+      <article class="cir-card rv" id="endoscopica">
+        <span class="tecnico">Cirurgia endoscópica nasossinusal</span>
+        <h4>Sinusite e pólipos</h4>
+        <p>Para sinusite crônica ou que sempre volta e pólipos que não melhoram com o tratamento clínico.</p>
+        <a data-cir="Cirurgia endoscópica nasossinusal (sinusite e polipose nasal)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
+      </article>
+      <article class="cir-card rv" id="faringoplastia">
+        <span class="tecnico">Faringoplastia</span>
+        <h4>Ronco</h4>
+        <p>Para casos selecionados de ronco e apneia, quando a garganta é o ponto que estreita a passagem do ar.</p>
+        <a data-cir="Faringoplastia (cirurgia para ronco)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
+      </article>
+      <article class="cir-card rv" id="adenoidectomia">
+        <span class="tecnico">Adenoidectomia</span>
+        <h4>Adenoide</h4>
+        <p>Comum em crianças que respiram pela boca, roncam ou têm otites de repetição.</p>
+        <a data-cir="Adenoidectomia (remoção da adenoide)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
+      </article>
+      <article class="cir-card rv" id="amigdalectomia">
+        <span class="tecnico">Amigdalectomia</span>
+        <h4>Amígdalas</h4>
+        <p>Para amigdalites de repetição ou amígdalas grandes que atrapalham a respiração e o sono.</p>
+        <a data-cir="Amigdalectomia (remoção das amígdalas)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
+      </article>
+      <article class="cir-card rv" id="dacrio">
+        <span class="tecnico">Dacriocistorrinostomia endoscópica</span>
+        <h4>Canal lacrimal</h4>
+        <p>Para quem lacrimeja o tempo todo por obstrução do canal da lágrima. Feita pelo nariz, com endoscópio.</p>
+        <a data-cir="Dacriocistorrinostomia (desobstrução do canal lacrimal)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
+      </article>
+      <article class="cir-card rv" id="laringe">
+        <span class="tecnico">Microcirurgia de laringe</span>
+        <h4>Pregas vocais</h4>
+        <p>Para rouquidão por nódulos, pólipos e outras lesões que não melhoram com o tratamento clínico.</p>
+        <a data-cir="Microcirurgia de laringe (pregas vocais / rouquidão)" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
+      </article>
+      <article class="cir-card rv" id="tubo">
+        <span class="tecnico">Timpanotomia para tubo de ventilação</span>
+        <h4>Tubo no ouvido</h4>
+        <p>Para líquido atrás do tímpano ou otites que se repetem, comum em crianças.</p>
+        <a data-cir="Timpanotomia para colocação de tubo de ventilação" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Perguntar ↗</a>
+      </article>
+    </div>
+
+    <div class="cir-nota rv">
+      <div>
+        <h3>Já recebeu indicação de cirurgia?</h3>
+        <p>Traga seus exames. Avalio o seu caso, explico cada caminho, inclusive os que não são cirúrgicos, e digo com clareza o que eu faria no seu lugar. A decisão final é sempre sua.</p>
+      </div>
+      <a class="btn btn-primario" data-cir="segunda opinião sobre uma indicação de cirurgia" href="https://wa.me/5521992439960" target="_blank" rel="noopener">Falar sobre o meu caso <span class="seta">↗</span></a>
+    </div>
+
+    <div class="outros" id="outros-tratamentos">
+      <div>
+        <span class="rotulo rv">Outros tratamentos</span>
+        <h3 class="rv d1">Além da respiração, o cuidado inteiro.</h3>
+      </div>
+      <div class="outros-lista">
+        <div class="rv"><h4>Ouvido, Audição e Zumbido</h4><p>Cera, otite, zumbido e perda auditiva, investigados com cuidado.</p></div>
+        <div class="rv d1"><h4>Tontura &amp; Equilíbrio</h4><p>Nem toda tontura é labirintite. Entender a origem muda o tratamento.</p></div>
+        <div class="rv d2"><h4>Voz &amp; Garganta</h4><p>Rouquidão que não passa, pigarro e cansaço vocal de quem fala o dia inteiro.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="secao claro faq" id="perguntas">
   <div class="wrap">
@@ -740,7 +702,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;font-size:15px;color
       <details><summary>Vou ter que operar?<span class="mais">+</span></summary><p>Não necessariamente. O caminho pode ser clínico, de hábitos, vacina para alergia ou cirurgia. A cirurgia só entra quando é bem indicada para o seu caso.</p></details>
       <details><summary>Meu filho respira pela boca e ronca. Serve para ele?<span class="mais">+</span></summary><p>Serve. A avaliação investiga por que a criança vive de boca aberta, ronca ou dorme mal.</p></details>
       <details><summary>Não sou atleta. A avaliação é para mim?<span class="mais">+</span></summary><p>É. Quem treina recebe atenção ao impacto no esporte, mas a investigação vale para qualquer pessoa que respira ou dorme mal.</p></details>
-      <details><summary>Também atende ouvido, tontura e voz?<span class="mais">+</span></summary><p>Sim. Além da respiração, atendo as demais áreas da otorrinolaringologia: ouvido e audição, tontura e equilíbrio, voz e garganta.</p></details>
+      <details><summary>Também atende ouvido, tontura e voz?<span class="mais">+</span></summary><p>Sim. Além da respiração, atendo as demais áreas da otorrinolaringologia: ouvido, audição e zumbido, tontura e equilíbrio, voz e garganta.</p></details>
       <details><summary>Quanto custa?<span class="mais">+</span></summary><p>O valor da avaliação é passado pelo WhatsApp. O custo de um tratamento depende do que for indicado, e conversamos sobre cada caminho na consulta.</p></details>
       <details><summary>É pelo plano de saúde?<span class="mais">+</span></summary><p>A avaliação é particular. Pergunte pelo WhatsApp como funciona o pedido de reembolso ao seu plano.</p></details>
     </div>
@@ -753,7 +715,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;font-size:15px;color
   <span class="bolha" aria-hidden="true"></span>
   <div class="wrap">
     <span class="rotulo rv" style="justify-content:center">O primeiro passo é entender a causa</span>
-    <h2 class="rv d1">Respirar melhor.<br><em>Viver melhor.</em></h2>
+    <h2 class="rv d1">Melhore sua respiração,<br><em>transforme sua vida.</em></h2>
     <p class="rv d2">Fale direto comigo pelo WhatsApp: (21) 99243-9960</p>
     <div class="acoes rv d3">
       <a class="btn btn-primario js-zap" href="https://wa.me/5521992439960?text=Ol%C3%A1%2C%20Dr.%20J%C3%B4natans!%20Quero%20agendar%20a%20avalia%C3%A7%C3%A3o%20respirat%C3%B3ria." target="_blank" rel="noopener">Agendar minha avaliação <span class="seta">↗</span></a>
