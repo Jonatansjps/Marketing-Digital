@@ -127,12 +127,6 @@ h2 em,h1 em{font-style:italic;color:var(--agua)}
 }
 
 /* tese */
-.tese{padding:120px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.tese blockquote{font-family:var(--serif);font-size:clamp(34px,5.4vw,72px);line-height:1.1;max-width:1000px}
-.tese blockquote em{color:var(--agua)}
-.tese .precisao{margin-top:36px;padding-top:28px;border-top:1px solid var(--line);max-width:760px;font-family:var(--serif);font-size:clamp(22px,2.6vw,32px);line-height:1.25;color:var(--marfim)}
-.tese .precisao span{color:var(--agua);font-style:italic}
-.tese cite{display:block;margin-top:32px;font-style:normal;color:var(--muted);font-size:15px}
 .onda{position:absolute;right:-40px;bottom:-10px;width:520px;opacity:.5;pointer-events:none}
 .onda path{stroke-dasharray:1400;stroke-dashoffset:1400;animation:tracar 6s ease forwards infinite alternate}
 @keyframes tracar{to{stroke-dashoffset:0}}
@@ -142,6 +136,8 @@ h2 em,h1 em{font-style:italic;color:var(--agua)}
 .cabeca{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:64px;flex-wrap:wrap}
 .cabeca h2{margin-top:18px;max-width:720px}
 .cabeca .lead{max-width:420px}
+.cabeca .precisao{max-width:420px;font-family:var(--serif);font-size:clamp(22px,2.4vw,28px);line-height:1.25;color:var(--marfim)}
+.cabeca .precisao span{color:var(--agua);font-style:italic}
 .lead p+p{margin-top:14px}
 .pilares{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
 .pilar{grid-column:span 2;position:relative;background:var(--grafite-2);border:1px solid var(--line);border-radius:var(--raio);padding:34px 30px 32px;min-height:360px;display:flex;flex-direction:column;overflow:hidden;transition:transform .45s cubic-bezier(.2,.7,.2,1),border-color .45s,background .45s}
@@ -398,19 +394,6 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;font-size:15px;color
   </div>
 </section>
 
-<!-- TESE -->
-<section class="tese">
-  <div class="wrap">
-    <blockquote class="rv">“Não tem como falar de saúde integral sem falar de <em>respiração</em>.”</blockquote>
-    <p class="precisao rv d1">Medicina de precisão: <span>o tratamento certo para a causa certa.</span></p>
-    <cite class="rv d1">Dr. Jônatans Parada · Otorrinolaringologista</cite>
-  </div>
-  <svg class="onda" viewBox="0 0 520 200" fill="none" aria-hidden="true">
-    <path d="M0 120 C 60 40, 120 40, 170 120 S 280 200, 340 110 S 450 30, 520 100" stroke="#8CC9C5" stroke-width="1.2"/>
-    <path d="M0 150 C 70 80, 130 80, 180 150 S 290 220, 350 140 S 460 70, 520 130" stroke="#136670" stroke-width="1.2"/>
-  </svg>
-</section>
-
 <!-- RESPIRAÇÃO -->
 <section class="secao" id="respiracao">
   <div class="wrap">
@@ -528,6 +511,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;font-size:15px;color
         <span class="rotulo rv">Como funciona</span>
         <h2 class="rv d1">Uma avaliação. <em>Um plano de tratamento individualizado.</em></h2>
       </div>
+      <p class="precisao rv d2">Medicina de precisão: <span>o tratamento certo para a causa certa.</span></p>
     </div>
     <div class="passos">
       <div class="passo rv"><span class="marco">01</span><h3>Conversa</h3><p>Sobre a sua rotina e a sua saúde como um todo, sem pressa, porque tudo influencia na sua respiração.</p></div>
