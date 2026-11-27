@@ -100,9 +100,10 @@ h2 em,h1 em{font-style:italic;color:var(--agua)}
 .hero h1{font-size:clamp(44px,6.4vw,88px);margin:22px 0 26px}
 .hero .lead{margin-bottom:38px}
 .acoes{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-.selos{display:flex;flex-wrap:wrap;gap:28px;margin-top:48px;padding-top:28px;border-top:1px solid var(--line)}
-.selos div{font-size:14px;color:var(--muted)}
+.selos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:48px;padding-top:28px;border-top:1px solid var(--line)}
+.selos div{font-size:14px;color:var(--muted);text-align:center}
 .selos strong{display:block;font-family:var(--serif);font-weight:400;font-size:30px;color:var(--marfim);line-height:1.1}
+@media(max-width:600px){.selos{gap:8px}.selos div{font-size:12px;line-height:1.35;hyphens:auto}.selos strong{font-size:21px;margin-bottom:4px}}
 
 .retrato{position:relative;aspect-ratio:4/5;max-width:470px;justify-self:end;width:100%}
 .retrato .foto{position:absolute;inset:0;border-radius:240px 240px var(--raio) var(--raio);overflow:hidden;z-index:2}
